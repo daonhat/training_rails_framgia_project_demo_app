@@ -3,15 +3,18 @@ class CommentsController < ApplicationController
   def create
   	@comment = current_user.comments.build(comment_params)
     @entry = Entry.find(@comment.entry_id)
-  	if @comment.save
+    if @result = current_user.following?(@entry.user)
+        @comment.save
+        respond_to do |format|
+            format.html { redirect_to root_url }
+            format.js
+          end
+    else
       respond_to do |format|
-          format.html { redirect_to root_url }
-          format.js
+            format.html { redirect_to root_url }
+            format.js
         end
-  	else
-    	flash.now[:danger] = "error"
-      redirect_to :back
-  	end
+    end
   end
 
   def destroy
