@@ -3,4 +3,5 @@ alert("Followed, Plese reload page!!");
 <% else %>
 $("#follow_form").html("<%= escape_javascript(render('users/unfollow')) %>");
 $("#followers").html('<%= @user.followers.count %>');
+$(".comment_form").show();
 <% end %>

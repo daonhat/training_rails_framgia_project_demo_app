@@ -1,6 +1,7 @@
 <% if @relationship %>
 $("#follow_form").html("<%= escape_javascript(render('users/follow')) %>");
 $("#followers").html('<%= @user.followers.count %>');
+$(".comment_form").hide();
 <% else %>
 alert("No UnFollowed, Plese reload page!!");
 <% end %>

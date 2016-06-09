@@ -1,5 +1,5 @@
 <% if logged_in? %>
-  <%= form_for(@comment ||= Comment.new, html: { multipart: true, class: "form-horizontal" }, remote: true) do |f| %>
+  <%= form_for(@comment ||= Comment.new, html: { multipart: true, class: "form-horizontal comment_form" }, remote: true) do |f| %>
     <div class="hidden">
       <%= f.hidden_field :entry_id, value: entry.id %>
       <%= f.hidden_field :user_id, value: current_user.id %>
