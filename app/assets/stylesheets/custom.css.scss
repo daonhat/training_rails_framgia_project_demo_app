@@ -22,6 +22,7 @@
 
 body {
   padding-top: 60px;
+  background-color: #E9EBEE;
 }
 
 section {
@@ -211,9 +212,13 @@ input {
 .entries {
   list-style: none;
   padding: 0;
+  width: 750px;
+  margin: 0 auto;
   li {
-    padding: 10px 0;
+    padding: 10px 5px;
     border-top: 1px solid #e8e8e8;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
   }
   .user {
     margin-top: 5em;
@@ -290,4 +295,17 @@ span.picture {
 .users.follow {
   padding: 0;
 }
+
+.dn-all-users {
+  border : 1px solid #e5e5e5;
+  background-color: #fff;
+  width: 600px;
+  margin: 0 auto;
+  .pagination{
+    padding-left: calc(50% - 155px);
+  }
+  .users{
+  }
+}
+
 

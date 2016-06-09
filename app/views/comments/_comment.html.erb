@@ -4,10 +4,15 @@
       <%= link_to gravatar_for(comment.user, size: 25), comment.user %>
     </span>
   </div>
-  <div class="col-md-10">
+  <div class="col-md-9">
     <b><%= link_to comment.user.name, comment.user %></b>
     <%= comment.content %>
     <br/>
     <h6><%= time_ago_in_words(comment.created_at) %>. </h6>
+  </div>
+  <div class=" col-md-2">
+      <% if current_user?(comment.user) %>
+        <%= link_to "delete", comment, method: :delete, remote: true %>
+      <% end %>
   </div>
 </div>
