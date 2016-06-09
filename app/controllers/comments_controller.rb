@@ -4,11 +4,18 @@ class CommentsController < ApplicationController
   	@comment = current_user.comments.build(comment_params)
     @entry = Entry.find(@comment.entry_id)
     if @result = current_user.following?(@entry.user)
-        @comment.save
-        respond_to do |format|
+        if @valid = @comment.valid?
+        @comment.save  
+          respond_to do |format|
+            format.html { redirect_to root_url }
+            format.js
+            end
+        else
+          respond_to do |format|
             format.html { redirect_to root_url }
             format.js
           end
+        end
     else
       respond_to do |format|
             format.html { redirect_to root_url }

@@ -1,6 +1,8 @@
-<% if @result %>
+<% if @result && @valid %>
 $('#comments-of-entry-<%= @entry.id %>').append("<%=j render 'comments/comment',entry: @entry, comment: @comment %>");
 $('#comment_content_<%= @entry.id %>').val('')
+<% elsif @result && !@valid %>
+alert("The comment is too long (maximum is 140 characters)");
 <% else %>
 alert("You Unfollow <%= @entry.user.name %>, please follow to continue comment");
 <% end %> 
