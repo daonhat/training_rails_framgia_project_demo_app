@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def create
   	@comment = current_user.comments.build(comment_params)
     @entry = Entry.find(@comment.entry_id)
-    if @result = current_user.following?(@entry.user)
+    if @result = current_user.following?(@entry.user) || current_user?(@entry.user)
         if @valid = @comment.valid?
         @comment.save  
           respond_to do |format|

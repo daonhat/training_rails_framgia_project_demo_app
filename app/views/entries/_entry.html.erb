@@ -19,11 +19,9 @@
       </div>
      <% end %>
   </span>
-  <% if logged_in? && current_user.following?(entry.user) %>
   <div class="col-md-12">
       <%= render 'shared/comment_form', entry: entry %>
   </div>
   
   <div class="clearfix"></div>
-  <% end %>
 </li>
